@@ -1,9 +1,13 @@
 package com.addressbookcollection;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
+import cg.addressbook.Address;
+import cg.addressbook.Contact;
 
 public class AddressBook {
 	public static void main(String[] args) {
@@ -104,20 +108,24 @@ public class AddressBook {
 				}
 			}
 			if (k == 3) {
+				ArrayList<Contact> cityCon=new ArrayList<Contact>();
 				System.out.println("Enter the city");
 				sc.nextLine();
 				String city = sc.nextLine();
 				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					System.out.println((map.getValue().viewByCity(city)));
+					cityCon.addAll(map.getValue().viewByCity(city));
 				}
+				System.out.println(cityCon);
 			}
 			if (k == 4) {
+				ArrayList<Contact> stateCon=new ArrayList<Contact>();
 				System.out.println("Enter the state");
 				sc.nextLine();
 				String state = sc.nextLine();
 				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					System.out.println((map.getValue().viewByState(state)));
+					stateCon.addAll(map.getValue().viewByState(state));
 				}
+				System.out.println(stateCon);
 			}
 		}
 	}
