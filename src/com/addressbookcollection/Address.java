@@ -20,8 +20,12 @@ public class Address {
 	}
 
 	public void addContact(Contact contactObj) {
-			arrayList.add(contactObj);
+		if(!checkDuplicate(contactObj))
+		arrayList.add(contactObj);
+		else
+			System.out.println("Duplicate found");
 	}
+	
 	public List<Contact> viewAllContacts() {
 		return arrayList;
 	}

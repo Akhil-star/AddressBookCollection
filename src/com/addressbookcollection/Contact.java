@@ -80,4 +80,9 @@ public class Contact {
 		return pattern;
 	}
 	
+	public boolean equals(Contact obj) {
+		if(obj.getFirstName().equalsIgnoreCase(firstName) && obj.getLastName().equalsIgnoreCase(lastName))
+			return true;
+		return false;
+	}
 }
