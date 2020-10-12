@@ -49,4 +49,15 @@ public class Address {
 		}
 		return f;
 	}
+	public boolean removeContact(String firstName, String lastName) {
+		boolean f = false;
+		for (Contact obj : arrayList) {
+			if (obj.getFirstName().equalsIgnoreCase(firstName) && obj.getLastName().equalsIgnoreCase(lastName)) {
+				f = true;
+				arrayList.remove(obj);
+				break;
+			}
+		}
+		return f;
+	}
 }

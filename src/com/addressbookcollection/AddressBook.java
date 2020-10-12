@@ -8,8 +8,8 @@ public class AddressBook {
 		Scanner sc = new Scanner(System.in);
 		Address objmain = new Address();
 		int n = 0;
-		while (n != 3) {
-			System.out.println("1.Add\n2.Edit\n3.View");
+		while (n != 5) {
+			System.out.println("1.Add\n2.Edit\n3.Delete\n4.View\n5.Exit");
 			System.out.println("Enter your choice: ");
 			n = sc.nextInt();
 			if (n == 1) {
@@ -47,8 +47,21 @@ public class AddressBook {
 				else
 					System.out.println("Contact is not found");
 
+			}if (n == 3) {
+				System.out.println("Delete a contact :");
+				System.out.println("Enter the First Name: ");
+				sc.nextLine();
+				String firstName = sc.nextLine();
+				System.out.println("Enter the Last Name: ");
+				String lastName = sc.nextLine();
+			    boolean f1 = objmain.removeContact(firstName, lastName);
+				if (f1)
+					System.out.println("The contact is successfully deleted");
+				else
+					System.out.println("Contact is not found");
+
 			}
-			if (n == 3) {
+			if (n == 4) {
 				System.out.println("The contacts in the List are:");
 				List<Contact> list = objmain.viewAllContacts();
 				for (Contact obj : list) {
