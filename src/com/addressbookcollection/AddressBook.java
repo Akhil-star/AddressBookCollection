@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import cg.addressbook.Address;
-import cg.addressbook.Contact;
-
 public class AddressBook {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -116,6 +113,8 @@ public class AddressBook {
 					cityCon.addAll(map.getValue().viewByCity(city));
 				}
 				System.out.println(cityCon);
+				System.out.println("count of people in the "+city+": "+cityCon.size());
+
 			}
 			if (k == 4) {
 				ArrayList<Contact> stateCon=new ArrayList<Contact>();
@@ -126,6 +125,8 @@ public class AddressBook {
 					stateCon.addAll(map.getValue().viewByState(state));
 				}
 				System.out.println(stateCon);
+				System.out.println("count of people in the "+state+": "+stateCon.size());
+
 			}
 		}
 	}
