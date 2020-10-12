@@ -2,6 +2,7 @@ package com.addressbookcollection;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -11,7 +12,7 @@ public class AddressBook {
 		System.out.println("Welcome to address book program");
 		int z = 0;
 		while (z == 0) {
-			System.out.println("1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city \n4.Exit");
+			System.out.println("1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city \n4.View By State\n5.Exit");
 			int k = sc.nextInt();
 			if (k == 1) {
 				System.out.println("Enter the name of address book to be created");
@@ -100,6 +101,22 @@ public class AddressBook {
 					}
 				} else {
 					System.out.println("No Address book found");
+				}
+			}
+			if (k == 3) {
+				System.out.println("Enter the city");
+				sc.nextLine();
+				String city = sc.nextLine();
+				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
+					System.out.println((map.getValue().viewByCity(city)));
+				}
+			}
+			if (k == 4) {
+				System.out.println("Enter the state");
+				sc.nextLine();
+				String state = sc.nextLine();
+				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
+					System.out.println((map.getValue().viewByState(state)));
 				}
 			}
 		}

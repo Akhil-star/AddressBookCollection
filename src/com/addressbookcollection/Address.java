@@ -3,6 +3,7 @@ package com.addressbookcollection;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 public class Address {
 	private List<Contact> arrayList = new CopyOnWriteArrayList<Contact>();
@@ -64,4 +65,14 @@ public class Address {
 		}
 		return f;
 	}
+	
+	public List<Contact> viewByCity(String city) {
+		 return arrayList.stream().filter(list -> list.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+	}
+	
+	public List<Contact> viewByState(String state){
+		 return arrayList.stream().filter(list -> list.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
+
+	}
+
 }
