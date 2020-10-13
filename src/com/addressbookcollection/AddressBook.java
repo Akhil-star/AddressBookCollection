@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import cg.addressbook.Address;
-import cg.addressbook.Contact;
-
 public class AddressBook {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -112,19 +109,15 @@ public class AddressBook {
 				System.out.println("Enter the city");
 				sc.nextLine();
 				String city = sc.nextLine();
-				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					cityCon.addAll(map.getValue().viewByCity(city));
-				}
-				System.out.println(cityCon);
+				hashMap.values().stream().forEach(c->cityCon.addAll(c.viewByCity(city)));
+				System.out.println("View By City : "+cityCon);
 			}
 			if (k == 4) {
 				ArrayList<Contact> stateCon=new ArrayList<Contact>();
 				System.out.println("Enter the state");
 				sc.nextLine();
 				String state = sc.nextLine();
-				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					stateCon.addAll(map.getValue().viewByState(state));
-				}
+				hashMap.values().stream().forEach(c->stateCon.addAll(c.viewByCity(state)));
 				System.out.println(stateCon);
 			}
 		}
