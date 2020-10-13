@@ -81,18 +81,4 @@ public class Address {
    		return arrayList.stream().sorted(Comparator.comparing(Contact::getFirstName)).collect(Collectors.toList());
 
 	}
-
-	public List<Contact> sortByCity(){
-   		return arrayList.stream().sorted(Comparator.comparing(Contact::getCity)).collect(Collectors.toList());
-
-	}
-	
-	public List<Contact> sortByState(){
-   		return arrayList.stream().sorted(Comparator.comparing(Contact::getState)).collect(Collectors.toList());
-
-	}
-	
-	public List<Contact> sortByZip(){
-   		return arrayList.stream().sorted(Comparator.comparingLong(Contact::getZip)).collect(Collectors.toList());
-	}
 }
