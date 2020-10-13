@@ -107,17 +107,15 @@ public class AddressBook {
 				System.out.println("Enter the city");
 				sc.nextLine();
 				String city = sc.nextLine();
-				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					System.out.println((map.getValue().viewByCity(city)));
-				}
+				hashMap.values().stream().forEach(c->System.out.println(c.viewByCity(city)));
+
 			}
 			if (k == 4) {
 				System.out.println("Enter the state");
 				sc.nextLine();
 				String state = sc.nextLine();
-				for (Map.Entry<String, Address> map : hashMap.entrySet()) {
-					System.out.println((map.getValue().viewByState(state)));
-				}
+				hashMap.values().stream().forEach(c->System.out.println(c.viewByState(state)));
+
 			}
 		}
 	}
