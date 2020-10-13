@@ -117,7 +117,7 @@ public class AddressBook {
 				System.out.println("Enter the state");
 				sc.nextLine();
 				String state = sc.nextLine();
-				hashMap.values().stream().forEach(c->stateCon.addAll(c.viewByCity(state)));
+				hashMap.values().stream().forEach(c->stateCon.addAll(c.viewByState(state)));
 				System.out.println(stateCon);
 			}
 		}
