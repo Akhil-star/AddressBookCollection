@@ -1,5 +1,6 @@
 package com.addressbookcollection;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -52,6 +53,7 @@ public class Address {
 				break;
 			}
 		}
+		sc.close();
 		return f;
 	}
 	public boolean removeContact(String firstName, String lastName) {
@@ -74,5 +76,23 @@ public class Address {
 		 return arrayList.stream().filter(list -> list.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
 
 	}
+	
+	public List<Contact> sortByFirstname(){
+   		return arrayList.stream().sorted(Comparator.comparing(Contact::getFirstName)).collect(Collectors.toList());
 
+	}
+
+	public List<Contact> sortByCity(){
+   		return arrayList.stream().sorted(Comparator.comparing(Contact::getCity)).collect(Collectors.toList());
+
+	}
+	
+	public List<Contact> sortByState(){
+   		return arrayList.stream().sorted(Comparator.comparing(Contact::getState)).collect(Collectors.toList());
+
+	}
+	
+	public List<Contact> sortByZip(){
+   		return arrayList.stream().sorted(Comparator.comparingLong(Contact::getZip)).collect(Collectors.toList());
+	}
 }

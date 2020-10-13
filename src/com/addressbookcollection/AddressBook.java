@@ -3,9 +3,7 @@ package com.addressbookcollection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class AddressBook {
 	public static void main(String[] args) {
@@ -14,7 +12,8 @@ public class AddressBook {
 		System.out.println("Welcome to address book program");
 		int z = 0;
 		while (z == 0) {
-			System.out.println("1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city \n4.View By State\n5.Exit");
+			System.out.println(
+					"1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city \n4.View By State\n5.Sort by first name\n6.Sort by city\n7.Sort by state\n8.Sort by zip\n9.Exit");
 			int k = sc.nextInt();
 			if (k == 1) {
 				System.out.println("Enter the name of address book to be created");
@@ -23,12 +22,10 @@ public class AddressBook {
 				hashMap.put(name, obj);
 			}
 			if (k == 2) {
-				Contact obj1 = new Contact();
 				System.out.println("Enter the name of the address book to be accesed");
 				String name = sc.next();
 				if (hashMap.containsKey(name)) {
 					int n = 0;
-					Address objmain = new Address();
 					while (n != 5) {
 						System.out.println(
 								"Menu\n1.Add\n2.Edit Contact\n3.Delete Contact\n4.Display all contacts\n5.Exit");
@@ -106,25 +103,38 @@ public class AddressBook {
 				}
 			}
 			if (k == 3) {
-				ArrayList<Contact> cityCon=new ArrayList<Contact>();
+				ArrayList<Contact> cityCon = new ArrayList<Contact>();
 				System.out.println("Enter the city");
 				sc.nextLine();
 				String city = sc.nextLine();
-				hashMap.values().stream().forEach(c->cityCon.addAll(c.viewByCity(city)));
-				System.out.println("View By City : "+cityCon);
-				System.out.println("count of people in the "+city+": "+cityCon.size());
+				hashMap.values().stream().forEach(c -> cityCon.addAll(c.viewByCity(city)));
+				System.out.println("View By City : " + cityCon);
+				System.out.println("count of people in the " + city + ": " + cityCon.size());
 
 			}
 			if (k == 4) {
-				ArrayList<Contact> stateCon=new ArrayList<Contact>();
+				ArrayList<Contact> stateCon = new ArrayList<Contact>();
 				System.out.println("Enter the state");
 				sc.nextLine();
 				String state = sc.nextLine();
-				hashMap.values().stream().forEach(c->stateCon.addAll(c.viewByCity(state)));
+				hashMap.values().stream().forEach(c -> stateCon.addAll(c.viewByState(state)));
 				System.out.println(stateCon);
-				System.out.println("count of people in the "+state+": "+stateCon.size());
+				System.out.println("count of people in the " + state + ": " + stateCon.size());
 
 			}
+			if (k == 5) {
+				hashMap.values().stream().forEach(c -> System.out.println(c.sortByFirstname()));
+			}
+			if (k == 6) {
+				hashMap.values().stream().forEach(c -> System.out.println(c.sortByCity()));
+			}
+			if (k == 7) {
+				hashMap.values().stream().forEach(c -> System.out.println(c.sortByState()));
+			}
+			if (k == 8) {
+				hashMap.values().stream().forEach(c -> System.out.println(c.sortByZip()));
+			}
 		}
+		sc.close();
 	}
 }

@@ -74,12 +74,13 @@ public class Contact {
 		this.emailId = emailId;
 	}
 	
+	@Override
 	public String toString() {
 		String pattern = (firstName + " " + lastName + " " + city + " " + state + " " + " " + zip + " " + phoneNumber + " "
 				+ emailId + " ");
 		return pattern;
 	}
-	
+
 	public boolean equals(Contact obj) {
 		if(obj.getFirstName().equalsIgnoreCase(firstName) && obj.getLastName().equalsIgnoreCase(lastName))
 			return true;
