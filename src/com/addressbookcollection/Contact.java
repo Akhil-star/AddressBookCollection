@@ -12,6 +12,7 @@ public class Contact {
 	public Contact(){
 	}
 	
+
 	public String getFirstName() {
 		return firstName;
 	}
