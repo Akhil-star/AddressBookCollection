@@ -78,7 +78,7 @@ public class Address {
 	}
 	
 	public List<Contact> sortByFirstname(){
-   		return arrayList.stream().sorted(Comparator.comparing(Contact::getFirstName)).collect(Collectors.toList());
+   		return arrayList.stream().sorted(Comparator.comparing(Contact::getFirstName).thenComparing(Contact::getLastName)).collect(Collectors.toList());
 
 	}
 }
