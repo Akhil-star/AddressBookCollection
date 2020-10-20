@@ -77,8 +77,9 @@ public class Contact {
 	
 	@Override
 	public String toString() {
-		String pattern = (firstName + " " + lastName + " " + city + " " + state + " " + " " + zip + " " + phoneNumber + " "
-				+ emailId + " ");
+		String pattern = ("FirstName: " +firstName + " LastName: " + lastName + " City: " + city + 
+				" State: " + state + " Zip: " + zip + " MobileNumber:" + phoneNumber + " EmailId: "
+				+ emailId + "\n");
 		return pattern;
 	}
 

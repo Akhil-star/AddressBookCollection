@@ -1,20 +1,30 @@
 package com.addressbookcollection;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBook {
+	static HashMap<String, Address> hashMap = new HashMap<String, Address>();
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		HashMap<String, Address> hashMap = new HashMap<String, Address>();
 		System.out.println("Welcome to address book program");
-		int z = 0;
-		while (z == 0) {
+		int k = 0;
+		while (k != 11) {
 			System.out.println(
-					"1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city \n4.View By State\n5.Sort by first name\n6.Sort by city\n7.Sort by state\n8.Sort by zip\n9.Exit");
-			int k = sc.nextInt();
+					"1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city "
+					+ "\n4.View By State\n5.Sort by first name\n6.Sort by city\n7.Sort by state\n8.Sort by zip"
+					+ "\n9.Write to file\n10.Read file\n11.Exit");
+			k = sc.nextInt();
 			if (k == 1) {
 				System.out.println("Enter the name of address book to be created");
 				String name = sc.next();
@@ -80,7 +90,6 @@ public class AddressBook {
 								System.out.println("The contact is successfully deleted");
 							else
 								System.out.println("Contact is not found");
-
 						}
 
 						if (n == 4) {
@@ -134,7 +143,63 @@ public class AddressBook {
 			if (k == 8) {
 				hashMap.values().stream().forEach(c -> System.out.println(c.sortByZip()));
 			}
+			if (k == 9) {
+				writeFile();
+			}
+			if (k == 10) {
+				readFile();
+			}
 		}
 		sc.close();
+	}
+
+	public static void writeFile() {
+		BufferedWriter bf = null;
+		try {
+			String fileName = "F:\\addressbook.txt";
+			File f = new File(fileName);
+			boolean res = f.createNewFile();
+			if (res == false) {
+				System.out.println("File already created");
+			}
+			bf = new BufferedWriter(new FileWriter(fileName));
+			for (Map.Entry<String, Address> entry : hashMap.entrySet()) {
+				bf.write("AddressBookName " + entry.getKey() + ":" + entry.getValue());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bf.close();
+			} catch (Exception e) {
+
+			}
+		}
+	}
+
+	public static void readFile() {
+		BufferedReader bf = null;
+		int ch = 0;
+		try {
+			String fileName = "F:\\addressbook.txt";
+			File f = new File(fileName);
+			boolean res = f.createNewFile();
+			if (res == false) {
+				System.out.println("Already Created");
+			}
+			bf = new BufferedReader(new FileReader(fileName));
+			while ((ch = bf.read()) != -1) {
+				System.out.print((char) ch);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bf.close();
+			} catch (Exception e) {
+
+			}
+		}
 	}
 }
