@@ -138,5 +138,27 @@ public class Address {
                     "\nState : "+nextRecord[6]+"\nZip : "+nextRecord[7]+"\nPhone no : "+nextRecord[5]+"\nEmailId : "+nextRecord[2]);
         }
     }
+
+    public void writeJsonFile() throws IOException{
+        String JsonWriteFile = "addressBookJson.txt";
+        Gson gson = new Gson();
+        String json = gson.toJson(arrayList);
+        FileWriter fileWriter = new FileWriter( JsonWriteFile );
+        BufferedWriter bufferedWriter = new BufferedWriter( fileWriter );
+        bufferedWriter.write( json );
+        bufferedWriter.close();
+    }
+
+    public void readJsonFile() throws IOException{
+        String JsonReadFile = "addressBookJson.txt";
+        Gson gson = new Gson();
+        FileReader fileReader = new FileReader( JsonReadFile);
+        BufferedReader bufferedReader = new BufferedReader( fileReader );
+        int ch =0;
+        while ((ch = bufferedReader.read()) != -1) {
+            System.out.print( (char) ch );
+        }
+        bufferedReader.close();
+    }
 }
 

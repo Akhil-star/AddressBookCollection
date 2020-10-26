@@ -21,10 +21,10 @@ public class AddressBook {
         Scanner sc = new Scanner( System.in );
         System.out.println( "Welcome to address book program" );
         int k = 0;
-        while (k != 13) {
+        while (k != 15) {
             System.out.println( "1.Create Address Book\n2.Add Details to Address Book\n3.View contact by city "
                     + "\n4.View By State\n5.Sort by first name\n6.Sort by city\n7.Sort by state\n8.Sort by zip"
-                    + "\n9.Write to file\n10.Read file\n11.Write Csv\n12.Read Csv\n13.Exit" );
+                    + "\n9.Write to file\n10.Read file\n11.Write Csv\n12.Read Csv\n13.Write Json\n14.Read Json\n15.Exit" );
             k = sc.nextInt();
             if (k == 1) {
                 System.out.println( "Enter the name of address book to be created" );
@@ -170,6 +170,25 @@ public class AddressBook {
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (CsvValidationException e) {
+                        e.printStackTrace();
+                    }
+                } );
+            }
+            if(k == 13){
+                hashMap.values().stream().forEach( c -> {
+                    try {
+                        c.writeJsonFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } );
+            }
+
+            if(k == 14){
+                hashMap.values().stream().forEach( c -> {
+                    try {
+                        c.readJsonFile();
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } );
