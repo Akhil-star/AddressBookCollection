@@ -1,0 +1,5 @@
+AddressBookName a:AddressDetails [FirstName: akhil LastName: kumar City: Mahabubnagar State: Telanagana Zip: 509382 MobileNumber:789456136320 EmailId: akhil@gmail.com
+, FirstName: Nikhil LastName: Kumar City: ssd State: x Zip: 333 MobileNumber:333 EmailId: wswe
+, FirstName: sws LastName: dds City: fgfg State: fdfddf Zip: 443 MobileNumber:343344 EmailId: rrefd
+]AddressBookName q:AddressDetails []AddressBookName n:AddressDetails [FirstName: abhi LastName: ka City: ddfd State: sssd Zip: 334 MobileNumber:23445 EmailId: dsed
+]
