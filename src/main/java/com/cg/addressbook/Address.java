@@ -118,17 +118,17 @@ public class Address {
     }
 
 
-    public void writeCSV() throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
-        String CsvWriteFile = "addressBookCsv.txt";
-        Writer writer = Files.newBufferedWriter( Paths.get( CsvWriteFile ) );
+    public void writeAllCSV() throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+        String CsvWriteFile = "addressBookCsv.csv";
+        Writer writer = Files.newBufferedWriter( Paths.get( CsvWriteFile));
         StatefulBeanToCsv<Contact> beanToCsv = new StatefulBeanToCsvBuilder( writer ).withQuotechar( CSVWriter.NO_QUOTE_CHARACTER ).build();
         beanToCsv.write( arrayList );
         writer.close();
 
     }
 
-    public void readCSV() throws IOException, CsvValidationException {
-        String CsvReadFile = "addressBookCsv.txt";
+    public void readAllCSV() throws IOException, CsvValidationException {
+        String CsvReadFile = "addressBookCsv.csv";
         Reader reader = Files.newBufferedReader(Paths.get(CsvReadFile));
         CSVReader csvReader = new CSVReader(reader);
         String[] nextRecord;
@@ -140,7 +140,7 @@ public class Address {
     }
 
     public void writeJsonFile() throws IOException{
-        String JsonWriteFile = "addressBookJson.txt";
+        String JsonWriteFile = "addressBookJson.json";
         Gson gson = new Gson();
         String json = gson.toJson(arrayList);
         FileWriter fileWriter = new FileWriter( JsonWriteFile );
@@ -150,7 +150,7 @@ public class Address {
     }
 
     public void readJsonFile() throws IOException{
-        String JsonReadFile = "addressBookJson.txt";
+        String JsonReadFile = "addressBookJson.json";
         Gson gson = new Gson();
         FileReader fileReader = new FileReader( JsonReadFile);
         BufferedReader bufferedReader = new BufferedReader( fileReader );

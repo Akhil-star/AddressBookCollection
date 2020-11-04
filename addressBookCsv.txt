@@ -1,3 +1,0 @@
-ADDRESS,CITY,EMAILID,FIRSTNAME,LASTNAME,PHONENUMBER,STATE,ZIP
-dcdcd,fcfc,rree,akk,sds,45454,frf,44
-cdxcf,fdfd,rftfg,fdfvfc,hgfgvf,545454,vcvcvc,44

@@ -153,7 +153,7 @@ public class AddressBook {
             if (k == 11) {
                 hashMap.values().stream().forEach( c -> {
                     try {
-                        c.writeCSV();
+                        c.writeAllCSV();
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (CsvDataTypeMismatchException e) {
@@ -166,7 +166,7 @@ public class AddressBook {
             if(k == 12){
                 hashMap.values().stream().forEach( c -> {
                     try {
-                        c.readCSV();
+                        c.readAllCSV();
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (CsvValidationException e) {
