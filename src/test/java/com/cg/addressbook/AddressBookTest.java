@@ -10,7 +10,7 @@ import static com.cg.addressbook.AddressBookSystem.IOService.DB_IO;
 public class AddressBookTest {
 
     @Test
-    public void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() {
+    public void givenAddressBookContactInDB_WhenRetrieved_ShouldMatchContactCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
         System.out.println(addressBookContactList);
@@ -18,7 +18,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDataBase() {
+    public void givenNewZipForContact_WhenUpdated_ShouldSyncWithDataBase() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> employeePayrollData = addressBookSystem.readAddressBookData(DB_IO);
         addressBookSystem.updateContactPhoneNo("Akhil",503682);
@@ -27,7 +27,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void givenDateRange_WhenRetrieved_ShouldMatchEmployeeCount() {
+    public void givenDateRange_WhenRetrieved_ShouldMatchContactCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         addressBookSystem.readAddressBookData(DB_IO);
         LocalDate startDate = LocalDate.of( 2018,01,01 );
