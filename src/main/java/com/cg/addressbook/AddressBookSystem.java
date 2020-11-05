@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AddressBookSystem {
+
     public enum IOService{DB_IO}
 
     private List<Contact> addressBookContactlist;
@@ -47,7 +48,7 @@ public class AddressBookSystem {
         return addressBookContactData.get(0).equals(getAddressBookContact(firstname));
     }
 
-    public List<Contact> readAddressBookContactDataForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) {
+    public List<Contact> readAddressBookContactDataForDateRange(IOService ioService,LocalDate startDate,LocalDate endDate) {
         if(ioService.equals( IOService.DB_IO ))
             return addressBookDBSystem.getAddressBookContactDataForDateRange(startDate,endDate);
         return null;
@@ -59,5 +60,8 @@ public class AddressBookSystem {
         return null;
     }
 
-
+    public void addContactToAddressBook(String firstname,String lastname,String address, String city, String state,
+                                        long zip,long phoneNumber,String emailId,String type,LocalDate date) {
+        addressBookContactlist.add(addressBookDBSystem.addContactToAddressBook(firstname,lastname,address,city,state,zip,phoneNumber,emailId,type,date));
+    }
 }
