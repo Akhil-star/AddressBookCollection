@@ -1,5 +1,6 @@
 package com.cg.addressbook;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Contact {
@@ -12,6 +13,7 @@ public class Contact {
      String state;
      long zip;
      String type;
+     LocalDate date;
 
     public Contact() {
     }
@@ -29,15 +31,13 @@ public class Contact {
         this.emailId = emailId;
     }
     public Contact(String firstName, String lastName, String address, String city, String state, long zip, long phoneNumber, String emailId, String type) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.phoneNumber = phoneNumber;
-        this.emailId = emailId;
+        this(firstName, lastName, address, city, state, phoneNumber, zip, emailId );
         this.type=type;
+    }
+
+    public Contact(String firstName, String lastName, String address, String city, String state, long zip, long phoneNumber, String emailId, String type,LocalDate date) {
+        this(firstName, lastName, address, city, state, zip, phoneNumber, emailId, type );
+        this.date = date;
     }
 
     public String getFirstName() {

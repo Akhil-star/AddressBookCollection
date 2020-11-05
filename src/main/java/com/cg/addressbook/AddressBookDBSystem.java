@@ -1,6 +1,7 @@
 package com.cg.addressbook;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -51,18 +52,23 @@ public class AddressBookDBSystem {
 
     public List<Contact> readData(){
         String sql = "Select * from addressbook";
+        return this.getContactDataUsingDB( sql );
+    }
+
+    private List<Contact> getContactDataUsingDB(String sql) {
         List<Contact> addressBookContactArrayList = new ArrayList<>();
         try(Connection connection =this.getConnection()){
             Statement statement =connection.createStatement();
             ResultSet resultSet = statement.executeQuery( sql );
-            addressBookContactArrayList = this.getEmployeePayrollData( resultSet );
+            addressBookContactArrayList = this.getAddressBookData( resultSet );
         }catch (SQLException e){
             e.printStackTrace();
         }
         return addressBookContactArrayList;
     }
 
-    private List<Contact> getEmployeePayrollData(ResultSet resultSet) {
+
+    private List<Contact> getAddressBookData(ResultSet resultSet) {
         List<Contact> addressBookContactArrayList = new ArrayList<>();
         try{
             while (resultSet.next()){
@@ -107,7 +113,7 @@ public class AddressBookDBSystem {
         try{
             addressBookDataStatement.setString( 1,firstname );
             ResultSet resultSet = addressBookDataStatement.executeQuery();
-            addressBookContactList = this.getEmployeePayrollData( resultSet );
+            addressBookContactList = this.getAddressBookData(  resultSet );
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -122,6 +128,12 @@ public class AddressBookDBSystem {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public List<Contact> getAddressBookContactDataForDateRange(LocalDate startDate, LocalDate endDate) {
+        String sql = String.format( "select * from addressbook where date between '%s' and '%s';",
+                Date.valueOf(startDate),Date.valueOf(endDate));
+        return this.getContactDataUsingDB(sql);
     }
 }
 
