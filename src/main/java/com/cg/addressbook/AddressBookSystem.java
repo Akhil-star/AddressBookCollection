@@ -2,6 +2,7 @@ package com.cg.addressbook;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public class AddressBookSystem {
     public enum IOService{DB_IO}
@@ -49,6 +50,12 @@ public class AddressBookSystem {
     public List<Contact> readAddressBookContactDataForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) {
         if(ioService.equals( IOService.DB_IO ))
             return addressBookDBSystem.getAddressBookContactDataForDateRange(startDate,endDate);
+        return null;
+    }
+
+    public Map<String,Integer> readContactCountByCity(IOService ioService){
+        if(ioService.equals( IOService.DB_IO ))
+            return addressBookDBSystem.getContactCountByCity();
         return null;
     }
 

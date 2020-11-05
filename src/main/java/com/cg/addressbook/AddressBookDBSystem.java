@@ -1,10 +1,9 @@
 package com.cg.addressbook;
 
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 
 public class AddressBookDBSystem {
 
@@ -134,6 +133,24 @@ public class AddressBookDBSystem {
         String sql = String.format( "select * from addressbook where date between '%s' and '%s';",
                 Date.valueOf(startDate),Date.valueOf(endDate));
         return this.getContactDataUsingDB(sql);
+    }
+
+    public Map<String, Integer> getContactCountByCity() {
+        String query = "select city,count(city) as count from addressbook group by city";
+        //"select state,count(state) as count from addressbook group by state"//
+        Map<String,Integer> cityToCountContact = new HashMap<>();
+        try(Connection connection = this.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String city = rs.getString( 1 );
+                Integer count = rs.getInt( 2 );
+                cityToCountContact.put( city,count );
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return cityToCountContact;
     }
 }
 

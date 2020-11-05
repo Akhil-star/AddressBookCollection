@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-05T09:48:50" hostname="DESKTOP-AURK5V2" time="0.32">
+<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-05T10:10:50" hostname="DESKTOP-AURK5V2" time="0.385">
   <properties/>
-  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount" classname="com.cg.addressbook.AddressBookTest" time="0.32"/>
+  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount" classname="com.cg.addressbook.AddressBookTest" time="0.385"/>
   <system-out><![CDATA[Driver Loaded!!
   com.mysql.jdbc.Driver
   com.mysql.fabric.jdbc.FabricMySQLDriver

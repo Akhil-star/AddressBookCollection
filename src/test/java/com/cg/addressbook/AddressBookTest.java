@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
+
 import static com.cg.addressbook.AddressBookSystem.IOService.DB_IO;
 
 public class AddressBookTest {
@@ -34,6 +36,15 @@ public class AddressBookTest {
         LocalDate endDate = LocalDate.now();
         List<Contact> addressBookContactData = addressBookSystem.readAddressBookContactDataForDateRange(DB_IO,startDate,endDate );
         Assert.assertEquals( 3,addressBookContactData.size() );
+    }
+
+    @Test
+    public void givenPayrollData_WhenAverageSalaryRetrieveByGender_ShouldReturnProperValue() {
+        AddressBookSystem addressBookSystem = new AddressBookSystem();
+        addressBookSystem.readAddressBookData(DB_IO);
+        Map<String,Integer> countContactByCity = addressBookSystem.readContactCountByCity(DB_IO);
+        Assert.assertTrue( countContactByCity.get("Mahabubnagar").equals( 2 )
+                && countContactByCity.get( "Hosur" ).equals( 1 ) && countContactByCity.get( "Kurnool" ).equals( 1 ) && countContactByCity.get( "Kadapa" ).equals( 1 ));
     }
 
 }
