@@ -12,7 +12,7 @@ import static com.cg.addressbook.AddressBookSystem.IOService.DB_IO;
 public class AddressBookTest {
 
     @Test
-    public void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() {
+    public void givenaddressBookContactInDB_WhenRetrieved_ShouldMatchContactCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
         System.out.println(addressBookContactList);
@@ -20,7 +20,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDataBase() {
+    public void givenNewZipForContact_WhenUpdated_ShouldSyncWithDataBase() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> employeePayrollData = addressBookSystem.readAddressBookData(DB_IO);
         addressBookSystem.updateContactPhoneNo("Akhil",503682);
@@ -29,7 +29,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void givenDateRange_WhenRetrieved_ShouldMatchEmployeeCount() {
+    public void givenDateRange_WhenRetrieved_ShouldMatchContactsCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         addressBookSystem.readAddressBookData(DB_IO);
         LocalDate startDate = LocalDate.of( 2018,01,01 );
@@ -39,7 +39,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void givenPayrollData_WhenAverageSalaryRetrieveByGender_ShouldReturnProperValue() {
+    public void givenAddressBookContactData_WhenRetrieveByCity_ShouldReturnProperValue() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         addressBookSystem.readAddressBookData(DB_IO);
         Map<String,Integer> countContactByCity = addressBookSystem.readContactCountByCity(DB_IO);
