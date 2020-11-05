@@ -113,7 +113,7 @@ public class AddressBookDBSystem {
         try{
             addressBookDataStatement.setString( 1,firstname );
             ResultSet resultSet = addressBookDataStatement.executeQuery();
-            addressBookContactList = this.getAddressBookData(  resultSet );
+            addressBookContactList = this.getAddressBookData( resultSet );
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -156,42 +156,16 @@ public class AddressBookDBSystem {
 
     public Contact addContactToAddressBook(String firstname,String lastname, String address, String city, String state, long zip, long phoneNumber, String emailId, String type,LocalDate date) {
         Contact contactData = null;
-        Connection connection = null;
-        try {
-            connection = this.getConnection();
-            connection.setAutoCommit( false );
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        try(Statement statement = connection.createStatement()){
-            String sql = String.format( "Insert into addressBook(firstname,lastname,address,city,state,zip,phno,email,type,date)" +
+        String sql = String.format( "Insert into addressBook(firstname,lastname,address,city,state,zip,phno,email,type,date)" +
                 "values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",firstname,lastname,address,city,state,zip,phoneNumber,emailId,type,Date.valueOf(date));
-            int rowaffected = statement.executeUpdate( sql );
-            if(rowaffected == 1){
-                System.out.println("succesfully added new employee");
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            int rowaffected = statement.executeUpdate( sql,Statement.RETURN_GENERATED_KEYS );
+            if(rowaffected == 1) {
+                System.out.println( "succesfully added new employee" );
             }
-        }catch (SQLException e){
-            e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
-
-        try {
-            connection.commit();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            if(connection != null){
-                try{
-                    connection.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
+        }catch (SQLException sqlException) {
+            sqlException.printStackTrace();
         }
         return contactData;
     }
