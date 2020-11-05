@@ -1,7 +1,6 @@
 package com.cg.addressbook;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -82,6 +81,47 @@ public class AddressBookDBSystem {
             e.printStackTrace();
         }
         return addressBookContactArrayList;
+    }
+
+    public int updateAddressBookContactData(String firstname, long zip) {
+        return this.updateContactDataUsingPreparedStatement( firstname,zip );
+    }
+
+    private int updateContactDataUsingPreparedStatement(String firstname,long zip){
+        String sql = "update addressbook set zip = ? where firstname = ?";
+        try(Connection connection =this.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setDouble( 1,zip );
+            preparedStatement.setString( 2,firstname );
+            int status =preparedStatement.executeUpdate();
+            return status;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    public List<Contact> getAddressBookContactData(String firstname) {
+        List<Contact> addressBookContactList = null;
+        if(this.addressBookDataStatement == null)
+            this.prepareStatementForContactData();
+        try{
+            addressBookDataStatement.setString( 1,firstname );
+            ResultSet resultSet = addressBookDataStatement.executeQuery();
+            addressBookContactList = this.getEmployeePayrollData( resultSet );
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return addressBookContactList;
+    }
+
+    private void prepareStatementForContactData() {
+        try{
+            Connection connection = this.getConnection();
+            String sql = "Select * from addressbook where firstname = ?";
+            addressBookDataStatement = connection.prepareStatement( sql );
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }
 

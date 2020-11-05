@@ -13,7 +13,17 @@ public class AddressBookTest {
     public void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
+        System.out.println(addressBookContactList);
         Assert.assertEquals(7,addressBookContactList.size());
+    }
+
+    @Test
+    public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDataBase() {
+        AddressBookSystem addressBookSystem = new AddressBookSystem();
+        List<Contact> employeePayrollData = addressBookSystem.readAddressBookData(DB_IO);
+        addressBookSystem.updateContactPhoneNo("Akhil",503692);
+        boolean result = addressBookSystem.checkAddressBookInsyncWithDB("Akhil");
+        Assert.assertTrue( result );
     }
 
 }
