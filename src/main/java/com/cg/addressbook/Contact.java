@@ -9,8 +9,33 @@ public class Contact {
     private String city;
     private String state;
     private long zip;
+    private String type;
 
     public Contact() {
+    }
+
+    public Contact(String firstName, String lastName, String address, String city, String state, long phoneNumber,
+                   long zip, String emailId) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+        this.emailId = emailId;
+    }
+    public Contact(String firstName, String lastName, String address, String city, String state, long zip, long phoneNumber, String emailId, String type) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+        this.emailId = emailId;
+        this.type=type;
     }
 
     public String getFirstName() {
@@ -77,18 +102,7 @@ public class Contact {
         this.zip = zip;
     }
 
-    public Contact(String firstName, String lastName, String address, String city, String state, long zip,
-                   long phoneNumber, String emailId) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.phoneNumber = phoneNumber;
-        this.emailId = emailId;
-    }
+
 
     @Override
     public String toString() {
