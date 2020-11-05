@@ -10,7 +10,7 @@ import static com.cg.addressbook.AddressBookSystem.IOService.DB_IO;
 public class AddressBookTest {
 
     @Test
-    public void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() {
+    public void givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
         Assert.assertEquals(7,addressBookContactList.size());
