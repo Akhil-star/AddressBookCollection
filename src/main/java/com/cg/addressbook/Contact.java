@@ -4,14 +4,15 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Contact {
+     int id;
      String firstName;
      String lastName;
-     long phoneNumber;
-     String emailId;
      String address;
      String city;
      String state;
+     long phoneNumber;
      long zip;
+     String emailId;
      String type;
      LocalDate date;
 

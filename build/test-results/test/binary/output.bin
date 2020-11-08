@@ -1,115 +1,37 @@
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-employees being added : Ramu
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: Ramu
-employees being added : sai
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: sai
-employees being added : krish
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: krish
-employees being added : vamsi
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: vamsi
- employees being added : Mukesh
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: Mukesh
- employees being added : bibhav
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
- succesfully added new employee
-Employees added: bibhav
-Å[FirstName: Akhil LastName: Kumar City: Mahabubnagar State: Telangana Zip: 503982 MobileNumber:9087654321 EmailId: abc@gmail.com
-z, FirstName: bill LastName: gates City: Hosur State: karnataka Zip: 509234 MobileNumber:9990876451 EmailId: raj@gmail.com
-x, FirstName: nikhil LastName: Kumar City: Kurnool State: AP Zip: 789659 MobileNumber:9987654321 EmailId: abhi@gmail.com
-t, FirstName: Akhi LastName: akki City: Kadapa State: AP Zip: 965900 MobileNumber:8765544321 EmailId: akki@gmail.com
-Ñ, FirstName: Rajesh LastName: Reddy City: Mahabubnagar State: Telangana Zip: 567659 MobileNumber:90876590321 EmailId: amj@gmail.com
-', null, null, null, null, null, null]
-&Duration without Thread: PT0.645276S
-employees being added : krish
-employees being added : sai
-employees being added : vamsi
- employees being added : Mukesh
-Driver Loaded!!
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-employees being added : Ramu
- employees being added : bibhav
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-+  com.mysql.fabric.jdbc.FabricMySQLDriver
-XConnecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-Connection was successful
-Connection was successful
-Connection was successful
-Connection was successful
- succesfully added new employee
-Employees added: sai
- succesfully added new employee
- succesfully added new employee
- succesfully added new employee
- succesfully added new employee
- succesfully added new employee
-Employees added: krish
-Employees added: Mukesh
-Employees added: Ramu
-Employees added: vamsi
-Employees added: bibhav
-Å[FirstName: Akhil LastName: Kumar City: Mahabubnagar State: Telangana Zip: 503982 MobileNumber:9087654321 EmailId: abc@gmail.com
-z, FirstName: bill LastName: gates City: Hosur State: karnataka Zip: 509234 MobileNumber:9990876451 EmailId: raj@gmail.com
-x, FirstName: nikhil LastName: Kumar City: Kurnool State: AP Zip: 789659 MobileNumber:9987654321 EmailId: abhi@gmail.com
-t, FirstName: Akhi LastName: akki City: Kadapa State: AP Zip: 965900 MobileNumber:8765544321 EmailId: akki@gmail.com
-Ñ, FirstName: Rajesh LastName: Reddy City: Mahabubnagar State: Telangana Zip: 567659 MobileNumber:90876590321 EmailId: amj@gmail.com
-K, null, null, null, null, null, null, null, null, null, null, null, null]
-$Duration with thread: PT0.2732698S
+#Addressbook entries in json server
+[
+  {
+    "id": 1,
+    "firstname": "Akhil",
+    "lastname": "Kumar",
+#    "address": "BhagirathaColony",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zip": 765432,
+    "phoneNumber": 9876543210,
+"    "emailId": "akhil@gmail.com",
+    "type": "Friends",
+    "startDate": {
+      "year": 2020,
+      "month": 11,
+      "day": 2
+    }
+  },
+  {
+    "id": 2,
+    "firstname": "Bill",
+    "lastname": "Gates",
+    "address": "Balajinagar",
+    "city": "vizag",
+    "state": "AP",
+    "zip": 12345,
+    "phoneNumber": 890765431,
+!    "emailId": "bill@gmail.com",
+    "type": "Family",
+    "startDate": {
+      "year": 2020,
+      "month": 11,
+      "day": 1
+    }
+  }
+]

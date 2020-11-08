@@ -1,13 +1,14 @@
 package com.cg.addressbook;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AddressBookSystem {
 
-    public enum IOService{DB_IO}
+    public enum IOService{DB_IO,REST_IO}
 
     private List<Contact> addressBookContactlist;
     private AddressBookDBSystem addressBookDBSystem;
@@ -19,7 +20,7 @@ public class AddressBookSystem {
 
     public AddressBookSystem(List<Contact> addressBookContactList){
         this();
-        this.addressBookContactlist=addressBookContactList;
+        this.addressBookContactlist=new ArrayList<>(addressBookContactList);
     }
 
     public List<Contact> readAddressBookData(IOService ioService){
@@ -102,6 +103,12 @@ public class AddressBookSystem {
     public long countEntries(IOService ioService){
         if(ioService.equals( IOService.DB_IO ))
             return addressBookContactlist.size();
-        return 0;
+        else
+            return addressBookContactlist.size();
+    }
+
+    public void addContactToAddressBook(Contact contact, IOService ioService) {
+        if(ioService.equals( IOService.REST_IO ))
+            addressBookContactlist.add( contact );
     }
 }

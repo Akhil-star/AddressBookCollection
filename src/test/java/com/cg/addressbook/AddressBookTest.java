@@ -1,6 +1,11 @@
 package com.cg.addressbook;
 
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -9,8 +14,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 import static com.cg.addressbook.AddressBookSystem.IOService.DB_IO;
+import static com.cg.addressbook.AddressBookSystem.IOService.REST_IO;
+
 
 public class AddressBookTest {
 
@@ -19,14 +25,14 @@ public class AddressBookTest {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
         System.out.println(addressBookContactList);
-        Assert.assertEquals(6,addressBookContactList.size());
+        Assert.assertEquals(5,addressBookContactList.size());
     }
 
     @Test
     public void givenNewZipForParticularContact_WhenUpdated_ShouldSyncWithDataBase() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
         List<Contact> employeePayrollData = addressBookSystem.readAddressBookData(DB_IO);
-        addressBookSystem.updateContactPhoneNo("Akhil",503982);
+        addressBookSystem.updateContactPhoneNo("Akhil",Long.parseLong( "74112"));
         boolean result = addressBookSystem.checkAddressBookInsyncWithDB("Akhil");
         Assert.assertTrue( result );
     }
@@ -53,10 +59,10 @@ public class AddressBookTest {
     @Test
     public void givenNewContact_WhenAdded_ShouldSyncWithDB() {
         AddressBookSystem addressBookSystem = new AddressBookSystem();
-        addressBookSystem.readAddressBookData(DB_IO);
-        addressBookSystem.addContactToAddressBook("ab","Bunny","Balajinagar","vizag","AP",Long.parseLong( "92512"),Long.parseLong( "9869854127" ),"xyz@gmail.com","family",LocalDate.now());
-        boolean result = addressBookSystem.checkAddressBookInsyncWithDB("ab");
-        Assert.assertTrue( result );
+        List<Contact> addressBookContactList = addressBookSystem.readAddressBookData( DB_IO );
+        addressBookSystem.addContactToAddressBook("ab","Bunny","Balajinagar","vizag",
+                "AP",Long.parseLong( "92512"),Long.parseLong( "9869854127" ),"xyz@gmail.com","family",LocalDate.now());
+        Assert.assertEquals( 6, addressBookContactList.size());
     }
 
     @Test
@@ -85,7 +91,36 @@ public class AddressBookTest {
         addressBookSystem.addContactsToAddressBookWithThreads(Arrays.asList(arrayOfContacts));
         Instant threadend = Instant.now();
         System.out.println("Duration with thread: "+Duration.between( threadStart,threadend ));
-        Assert.assertEquals( 17,addressBookSystem.countEntries(DB_IO) );
+        Assert.assertEquals( 42,addressBookSystem.countEntries(DB_IO) );
     }
 
+    @Before
+    public void setUp()  {
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = 3000;
+    }
+
+    private Contact[] getContactList() {
+        Response response = RestAssured.get("contacts");
+        System.out.println("Addressbook entries in json server\n" +response.asString());
+        Contact[] arrayOfEmps = new Gson().fromJson(response.asString(),Contact[].class);
+        return arrayOfEmps;
+    }
+
+    public Response addContactToJsonServer(Contact contact){
+        String empJson = new Gson().toJson( contact );
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header( "Content-Type","application/json" );
+        requestSpecification.body( empJson ) ;
+        return requestSpecification.post("/contacts");
+    }
+
+    @Test
+    public void givenAddressDataInJsonServer_WhenRetrieved_ShouldMatchTheCount(){
+        AddressBookSystem addressBookSystem;
+        Contact[] arrayOfEmps = getContactList();
+        addressBookSystem = new AddressBookSystem( Arrays.asList(arrayOfEmps));
+        long entries = addressBookSystem.countEntries( REST_IO );
+        Assert.assertEquals( 2,entries);
+    }
 }

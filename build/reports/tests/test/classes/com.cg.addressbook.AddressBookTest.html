@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.200s</div>
+<div class="counter">1.298s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,8 +78,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">given6Contact_WhenAddedToDB_ShouldMatchContactEntries</td>
-<td class="success">1.200s</td>
+<td class="success">givenAddressDataInJsonServer_WhenRetrieved_ShouldMatchTheCount</td>
+<td class="success">1.298s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,121 +87,43 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-employees being added : Ramu
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: Ramu
-employees being added : sai
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: sai
-employees being added : krish
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: krish
-employees being added : vamsi
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: vamsi
-employees being added : Mukesh
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: Mukesh
-employees being added : bibhav
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-succesfully added new employee
-Employees added: bibhav
-[FirstName: Akhil LastName: Kumar City: Mahabubnagar State: Telangana Zip: 503982 MobileNumber:9087654321 EmailId: abc@gmail.com
-, FirstName: bill LastName: gates City: Hosur State: karnataka Zip: 509234 MobileNumber:9990876451 EmailId: raj@gmail.com
-, FirstName: nikhil LastName: Kumar City: Kurnool State: AP Zip: 789659 MobileNumber:9987654321 EmailId: abhi@gmail.com
-, FirstName: Akhi LastName: akki City: Kadapa State: AP Zip: 965900 MobileNumber:8765544321 EmailId: akki@gmail.com
-, FirstName: Rajesh LastName: Reddy City: Mahabubnagar State: Telangana Zip: 567659 MobileNumber:90876590321 EmailId: amj@gmail.com
-, null, null, null, null, null, null]
-Duration without Thread: PT0.645276S
-employees being added : krish
-employees being added : sai
-employees being added : vamsi
-employees being added : Mukesh
-Driver Loaded!!
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-employees being added : Ramu
-employees being added : bibhav
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-Driver Loaded!!
-  com.mysql.jdbc.Driver
-  com.mysql.fabric.jdbc.FabricMySQLDriver
-Connecting to the Database jdbc:mysql://localhost:3306/addressBookService?useSSL=false
-Connection was successful
-Connection was successful
-Connection was successful
-Connection was successful
-Connection was successful
-succesfully added new employee
-Employees added: sai
-succesfully added new employee
-succesfully added new employee
-succesfully added new employee
-succesfully added new employee
-succesfully added new employee
-Employees added: krish
-Employees added: Mukesh
-Employees added: Ramu
-Employees added: vamsi
-Employees added: bibhav
-[FirstName: Akhil LastName: Kumar City: Mahabubnagar State: Telangana Zip: 503982 MobileNumber:9087654321 EmailId: abc@gmail.com
-, FirstName: bill LastName: gates City: Hosur State: karnataka Zip: 509234 MobileNumber:9990876451 EmailId: raj@gmail.com
-, FirstName: nikhil LastName: Kumar City: Kurnool State: AP Zip: 789659 MobileNumber:9987654321 EmailId: abhi@gmail.com
-, FirstName: Akhi LastName: akki City: Kadapa State: AP Zip: 965900 MobileNumber:8765544321 EmailId: akki@gmail.com
-, FirstName: Rajesh LastName: Reddy City: Mahabubnagar State: Telangana Zip: 567659 MobileNumber:90876590321 EmailId: amj@gmail.com
-, null, null, null, null, null, null, null, null, null, null, null, null]
-Duration with thread: PT0.2732698S
+<pre>Addressbook entries in json server
+[
+  {
+    &quot;id&quot;: 1,
+    &quot;firstname&quot;: &quot;Akhil&quot;,
+    &quot;lastname&quot;: &quot;Kumar&quot;,
+    &quot;address&quot;: &quot;BhagirathaColony&quot;,
+    &quot;city&quot;: &quot;Hyderabad&quot;,
+    &quot;state&quot;: &quot;Telangana&quot;,
+    &quot;zip&quot;: 765432,
+    &quot;phoneNumber&quot;: 9876543210,
+    &quot;emailId&quot;: &quot;akhil@gmail.com&quot;,
+    &quot;type&quot;: &quot;Friends&quot;,
+    &quot;startDate&quot;: {
+      &quot;year&quot;: 2020,
+      &quot;month&quot;: 11,
+      &quot;day&quot;: 2
+    }
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;firstname&quot;: &quot;Bill&quot;,
+    &quot;lastname&quot;: &quot;Gates&quot;,
+    &quot;address&quot;: &quot;Balajinagar&quot;,
+    &quot;city&quot;: &quot;vizag&quot;,
+    &quot;state&quot;: &quot;AP&quot;,
+    &quot;zip&quot;: 12345,
+    &quot;phoneNumber&quot;: 890765431,
+    &quot;emailId&quot;: &quot;bill@gmail.com&quot;,
+    &quot;type&quot;: &quot;Family&quot;,
+    &quot;startDate&quot;: {
+      &quot;year&quot;: 2020,
+      &quot;month&quot;: 11,
+      &quot;day&quot;: 1
+    }
+  }
+]
 </pre>
 </span>
 </div>
@@ -213,7 +135,7 @@ Duration with thread: PT0.2732698S
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 05-Nov-2020, 9:07:49 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 08-Nov-2020, 8:38:45 PM</p>
 </div>
 </div>
 </body>
