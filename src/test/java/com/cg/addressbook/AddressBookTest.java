@@ -123,4 +123,22 @@ public class AddressBookTest {
         long entries = addressBookSystem.countEntries( REST_IO );
         Assert.assertEquals( 2,entries);
     }
+
+    @Test
+    public void givenNewContact_WhenAdded_ShouldMatch201ResponseAndCount(){
+        AddressBookSystem addressBookSystem;
+        Contact[] arrayOfEmps = getContactList();
+        addressBookSystem = new AddressBookSystem( Arrays.asList(arrayOfEmps));
+        Contact contact = null;
+        contact = new Contact( "vijay","kanth","padmavathicolony","Manchiriyal","Tamilnadu",
+                Long.parseLong( "7654"),Long.parseLong( "8799854172" ),"xcx@gmail.com","family",LocalDate.now());
+        Response response = addContactToJsonServer( contact );
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals( 201,statusCode );
+
+        contact = new Gson().fromJson(response.asString(),Contact.class);
+        addressBookSystem.addContactToAddressBook(contact,REST_IO);
+        long entries = addressBookSystem.countEntries( REST_IO );
+        Assert.assertEquals( 3,entries);
+    }
 }
