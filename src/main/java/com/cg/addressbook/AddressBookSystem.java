@@ -29,7 +29,7 @@ public class AddressBookSystem {
         return this.addressBookContactlist;
     }
 
-    public void updateContactPhoneNo(String firstname, long zip) {
+    public void updateContactZipNo(String firstname, long zip) {
         int result = addressBookDBSystem.updateAddressBookContactData( firstname,zip);
         if(result == 0) return;
         Contact addressBookContact = this.getAddressBookContact(firstname);
@@ -37,10 +37,10 @@ public class AddressBookSystem {
             addressBookContact.zip = zip;
     }
 
-    private Contact getAddressBookContact(String firstname) {
+    Contact getAddressBookContact(String firstName) {
         Contact contact;
         contact = this.addressBookContactlist.stream()
-                .filter( contactDataItem -> contactDataItem.firstName.equals( firstname ))
+                .filter( contactDataItem -> contactDataItem.firstName.equals( firstName ))
                 .findFirst().orElse( null );
         return contact;
     }
@@ -110,5 +110,13 @@ public class AddressBookSystem {
     public void addContactToAddressBook(Contact contact, IOService ioService) {
         if(ioService.equals( IOService.REST_IO ))
             addressBookContactlist.add( contact );
+    }
+
+    public void updateContactZipNo(String firstName, long zip,IOService ioService) {
+        if(ioService.equals(IOService.REST_IO )) {
+            Contact contact = this.getAddressBookContact( firstName );
+            if (contact != null)
+                contact.zip = zip;
+        }
     }
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-08T15:13:18" hostname="DESKTOP-AURK5V2" time="1.332">
+<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-08T15:40:40" hostname="DESKTOP-AURK5V2" time="1.247">
   <properties/>
-  <testcase name="givenNewContact_WhenAdded_ShouldMatch201ResponseAndCount" classname="com.cg.addressbook.AddressBookTest" time="1.332"/>
+  <testcase name="givenNewZipCodeForConatct_WhenUpdated_ShouldMatch200Response" classname="com.cg.addressbook.AddressBookTest" time="1.247"/>
   <system-out><![CDATA[Addressbook entries in json server
 [
   {
     "id": 1,
-    "firstname": "Akhil",
-    "lastname": "Kumar",
+    "firstName": "Akhil",
+    "lastName": "Kumar",
     "address": "BhagirathaColony",
     "city": "Hyderabad",
     "state": "Telangana",
@@ -23,8 +23,8 @@
   },
   {
     "id": 2,
-    "firstname": "Bill",
-    "lastname": "Gates",
+    "firstName": "Bill",
+    "lastName": "Gates",
     "address": "Balajinagar",
     "city": "vizag",
     "state": "AP",
@@ -36,6 +36,57 @@
       "year": 2020,
       "month": 11,
       "day": 1
+    }
+  },
+  {
+    "id": 3,
+    "firstName": "vijay",
+    "lastName": "kanth",
+    "address": "padmavathicolony",
+    "city": "Manchiriyal",
+    "state": "Tamilnadu",
+    "phoneNumber": 8799854172,
+    "zip": 89765,
+    "emailId": "xcx@gmail.com",
+    "type": "family",
+    "date": {
+      "year": 2020,
+      "month": 11,
+      "day": 8
+    }
+  },
+  {
+    "id": 4,
+    "firstName": "Ramu",
+    "lastName": "Bezos",
+    "address": "Balajinagar",
+    "city": "vizag",
+    "state": "Telangana",
+    "phoneNumber": 9869857427,
+    "zip": 51512,
+    "emailId": "lol@gmail.com",
+    "type": "family",
+    "date": {
+      "year": 2020,
+      "month": 11,
+      "day": 8
+    }
+  },
+  {
+    "id": 5,
+    "firstName": "sai",
+    "lastName": "krish",
+    "address": "BagirathaColony",
+    "city": "hyderabad",
+    "state": "AP",
+    "phoneNumber": 8969854217,
+    "zip": 41512,
+    "emailId": "poi@gmail.com",
+    "type": "friend",
+    "date": {
+      "year": 2020,
+      "month": 11,
+      "day": 8
     }
   }
 ]
