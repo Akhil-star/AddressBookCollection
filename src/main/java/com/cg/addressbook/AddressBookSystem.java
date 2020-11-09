@@ -119,4 +119,11 @@ public class AddressBookSystem {
                 contact.zip = zip;
         }
     }
+
+    public void deleteAddressBookContact(String firstName, IOService ioService) {
+        if(ioService.equals(IOService.REST_IO )) {
+            Contact contact = this.getAddressBookContact( firstName );
+            addressBookContactlist.remove( contact );
+        }
+    }
 }

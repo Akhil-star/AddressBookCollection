@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-08T15:40:40" hostname="DESKTOP-AURK5V2" time="1.247">
+<testsuite name="com.cg.addressbook.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-09T01:45:29" hostname="DESKTOP-AURK5V2" time="1.579">
   <properties/>
-  <testcase name="givenNewZipCodeForConatct_WhenUpdated_ShouldMatch200Response" classname="com.cg.addressbook.AddressBookTest" time="1.247"/>
+  <testcase name="givenContactToDelete_WhenDeleted_ShouldMatch200ResponseAndCount" classname="com.cg.addressbook.AddressBookTest" time="1.579"/>
   <system-out><![CDATA[Addressbook entries in json server
 [
   {
@@ -46,7 +46,7 @@
     "city": "Manchiriyal",
     "state": "Tamilnadu",
     "phoneNumber": 8799854172,
-    "zip": 89765,
+    "zip": 786543,
     "emailId": "xcx@gmail.com",
     "type": "family",
     "date": {

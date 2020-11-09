@@ -184,4 +184,21 @@ public class AddressBookTest {
         Assert.assertEquals( 200, statusCode );
 
     }
+
+    @Test
+    public void givenContactToDelete_WhenDeleted_ShouldMatch200ResponseAndCount() {
+        AddressBookSystem addressBookSystem;
+        Contact[] arrayOfEmps = getContactList();
+        addressBookSystem = new AddressBookSystem( Arrays.asList( arrayOfEmps ) );
+        Contact contact = addressBookSystem.getAddressBookContact("vijay");
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header( "Content-Type","application/json" );
+        Response response = requestSpecification.delete("/contacts/"+contact.id);
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals( 200, statusCode );
+        addressBookSystem.deleteAddressBookContact(contact.firstName,REST_IO);
+        long entries = addressBookSystem.countEntries( REST_IO );
+        Assert.assertEquals( 4, entries );
+
+    }
 }
